@@ -18,14 +18,14 @@ pid_t getThreadID(void) {
 
 // write a string from thread with mutex
 int write_line(const char *msg) {
-/* if (pthread_mutex_lock(&g_lock) !=0){
+if (pthread_mutex_lock(&g_lock) !=0){
 return -1;
-}*/
+}
 
 
     ssize_t n = write(g_fd, msg, strlen(msg));
 
-/* pthread_mutex_unlock(&g_lock);*/
+pthread_mutex_unlock(&g_lock);
 
     if (n < 0) {
 return -1;
